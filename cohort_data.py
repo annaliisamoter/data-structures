@@ -48,30 +48,32 @@ def sort_by_cohort(filename):
 
     house_file = open(filename)
 
-
     for line in house_file:
-        # line = line.strip()
+        line = line.strip()
         split_line = line.split("|")
 
         name_list = split_line[:2]
         student_name = " "
         student_name = student_name.join(name_list)
 
-
         if "Winter" in split_line[4]:
             winter_16.append(student_name)
+        elif "Spring" in split_line[4]:
+            spring_16.append(student_name)
+        elif "Summer" in split_line[4]:
+            summer_16.append(student_name)
+        elif "Fall" in split_line[4]:
+            fall_15.append(student_name)
+        elif "G" in split_line[4]:
+            ghosts.append(student_name)
 
-    print winter_16
-
-        # elif split_line[4] == "Spring 2016":
-        #     spring_16.append(split_line[4])
-        # elif split_line[4] == "Summer 2016":
-        #     summer_16.append(split_line[4])
-        # elif split_line[4] == "Fall 2015":
-        #     fall_15.append(split_line)
+    all_students.append(fall_15)
     all_students.append(winter_16)
+    all_students.append(spring_16)
+    all_students.append(summer_16)
+    all_students.append(ghosts)
 
-    # return all_students
+    return all_students
 
 
 def hogwarts_by_house(filename):
