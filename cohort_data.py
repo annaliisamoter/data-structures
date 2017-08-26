@@ -99,9 +99,31 @@ def hogwarts_by_house(filename):
     ghosts = []
     instructors = []
 
-    # Code goes here
+    house_file = open(filename)
 
-    return all_students
+    for line in house_file:
+        line = line.strip()
+        split_line = line.split("|")
+        last_name = split_line[1]
+
+        if "Gryffindor" in split_line[2]:
+            gryffindor.append(last_name)
+        if "Hufflepuff" in split_line[2]:
+            hufflepuff.append(last_name)
+        if "Slytherin" in split_line[2]:
+            slytherin.append(last_name)
+        if "Dumbledore" in split_line[2]:
+            dumbledores_army.append(last_name)
+        if "Ravenclaw" in split_line[2]:
+            ravenclaw.append(last_name)
+        if "G" in split_line[4]:
+            ghosts.append(last_name)
+        if "I" in split_line[4]:
+            instructors.append(last_name)
+
+    all_students.append(gryffindor)
+    all_students.append()
+    #return all_students
 
 
 def all_students_tuple_list(filename):
